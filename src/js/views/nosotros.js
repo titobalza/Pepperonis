@@ -10,16 +10,15 @@ const Nosotros = () => {
         backgroundSize: "cover",
         backgroundPosition: "center",
         backgroundRepeat: "no-repeat",
-        height: "100vh",
-        justifyContent:"center",
-        alignItems:"center",
       }}
-    >
-      <img src={caja} className="p-2 d-center"/>
-      <h1>Historia de nuestra pizzería</h1>
-      <p>
-        En nuestra pizzería imaginaria, nos enorgullece ofrecer las mejores pizzas de la ciudad. Nuestra historia comenzó hace más de 20 años, cuando nuestro fundador, Juan Pérez, decidió abrir un pequeño local de pizzas en el corazón de la ciudad.
-      </p>
+    className="p-3">
+      
+      <div className="primercuadro" style={{backgroundImage:`url(${caja})` }}>
+        <h1>Historia de nuestra pizzería</h1>
+        <p>
+          En nuestra pizzería imaginaria, nos enorgullece ofrecer las mejores pizzas de la ciudad. Nuestra historia comenzó hace más de 20 años, cuando nuestro fundador, Juan Pérez, decidió abrir un pequeño local de pizzas en el corazón de la ciudad.
+        </p>
+      </div>
       <p>
         Desde entonces, nos hemos dedicado a perfeccionar nuestras recetas y a utilizar los ingredientes más frescos y de la más alta calidad. Nuestro objetivo siempre ha sido brindar a nuestros clientes una experiencia culinaria excepcional y satisfacer sus paladares exigentes.
       </p>

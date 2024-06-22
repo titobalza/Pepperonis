@@ -28,8 +28,15 @@
     color: #F7EF11;
   }
 
-  .historia{
-    
+  .primercuadro{
+      background-size:auto;
+      background-position: center;
+      background-repeat: no-repeat;
+      display: flex;
+      flex-direction: column;
+      justify-content:left;
+      padding: 8rem;
+      height:473px;
   }
   
   
