@@ -9,10 +9,20 @@ export const Navbar = () => {
         <img src={icono} alt="Icono" className="navbar-brand mb-0 h1" />
       </Link>
       <div className="ml-auto d-flex align-items-stretch">
-        <Link to="/menu" className="btn btn-outline-dark btn-square ">MENÚ</Link>
-        <Link to="/nosotros" className="btn btn-outline-dark btn-square ">NOSOTROS</Link>
-        <Link to="/crear-cuenta" className="btn btn-outline-dark btn-square ">CREAR CUENTA</Link>
-        <Link to="/login" className="btn btn-outline-dark btn-square ">INICIAR SESIÓN</Link>
+        <ul className="navbar-nav flex-row">
+          <li className="nav-item d-flex align-items-stretch">
+            <Link to="/menu" className="btn btn-outline-dark btn-square d-flex align-items-center justify-content-center" style={{height: 100}}>MENÚ</Link>
+          </li>
+          <li className="nav-item d-flex align-items-stretch">
+            <Link to="/nosotros" className="btn btn-outline-dark btn-square d-flex align-items-center justify-content-center" >NOSOTROS</Link>
+          </li>
+          <li className="nav-item d-flex align-items-stretch">
+            <Link to="/crear-cuenta" className="btn btn-outline-dark btn-square d-flex align-items-center justify-content-center" >CREAR CUENTA</Link>
+          </li>
+          <li className="nav-item d-flex align-items-stretch">
+            <Link to="/login" className="btn btn-outline-dark btn-square d-flex align-items-center justify-content-center">INICIAR SESIÓN</Link>
+          </li>
+        </ul>
       </div>
     </nav>
   );

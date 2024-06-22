@@ -2,12 +2,10 @@
     General Styles
 */
 .btn-square {
-    
     background-color: white;  
     border-radius: 0;
     outline-width: 0;
     border-top: none;
-    border-bottom: none;
     border-right: none;
     font-weight: bolder;
   }
@@ -17,11 +15,10 @@
   }
   
   .btn-square:focus {
-    outline-width: 2px;
-    outline-offset: -2px;
     outline-color: black;
     border-left: 2px solid black;
     border-right: 2px solid black;
+    border-bottom: 2px solid black; 
   }
 
   .bg-D59E3B {
