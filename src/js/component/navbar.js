@@ -4,7 +4,7 @@ import icono from "../../img/logo.png";
 import icono2 from "../../img/unimet.png";
 export const Navbar = () => {
   return (
-    <nav className="navbar navbar-light bg-D59E3B mb-3">
+    <nav className="navbar navbar-light bg-D59E3B ">
       <div className="sidel d-flex g-1">
 		<img src={icono2} alt="Icono" className="navbar-brand mb-0 h1" />
 		<Link to="/">
