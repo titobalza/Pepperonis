@@ -23,7 +23,7 @@ export const Navbar = () => {
             <Link to="/crear-cuenta" className="btn btn-outline-dark btn-square d-flex align-items-center justify-content-center" >CREAR<br />CUENTA</Link>
           </li>
           <li className="nav-item d-flex align-items-stretch">
-            <Link to="/login" className="btn btn-outline-dark btn-square d-flex align-items-center justify-content-center">INICIAR<br />SESIÓN</Link>
+            <Link to="/login" className="btn btn-outline-dark btn-square d-flex align-items-center justify-content-center bg-D59E3B">INICIAR<br />SESIÓN</Link>
           </li>
         </ul>
       </div>

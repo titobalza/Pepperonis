@@ -1,5 +1,6 @@
 import React from "react";
 import icono from "../../img/fondo.png";
+import caja from "../../img/box1.png";
 
 const Nosotros = () => {
   return (
@@ -10,8 +11,11 @@ const Nosotros = () => {
         backgroundPosition: "center",
         backgroundRepeat: "no-repeat",
         height: "100vh",
+        justifyContent:"center",
+        alignItems:"center",
       }}
     >
+      <img src={caja} className="p-2 d-center"/>
       <h1>Historia de nuestra pizzería</h1>
       <p>
         En nuestra pizzería imaginaria, nos enorgullece ofrecer las mejores pizzas de la ciudad. Nuestra historia comenzó hace más de 20 años, cuando nuestro fundador, Juan Pérez, decidió abrir un pequeño local de pizzas en el corazón de la ciudad.
