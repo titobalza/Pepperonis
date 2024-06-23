@@ -15,7 +15,7 @@ const SignUpForm = () => {
   const handleEmailPasswordSignUp = async (e) => {
     e.preventDefault();
 
-    const emailDomain = "@unimet.edu.ve";
+    const emailDomain = "@correo.unimet.edu.ve";
     if (!email.endsWith(emailDomain)) {
       setError(`Email must end with ${emailDomain}`);
       return;
@@ -43,7 +43,7 @@ const SignUpForm = () => {
       const user = result.user;
       const email = user.email;
 
-      const emailDomain = "@unimet.edu.ve";
+      const emailDomain = "@correo.unimet.edu.ve";
       if (!email.endsWith(emailDomain)) {
         setError(`Email must end with ${emailDomain}`);
         // Cerrar sesión del usuario si el correo no es válido.
