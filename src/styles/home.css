@@ -1,0 +1,35 @@
+#presentacion {
+    margin: 0;
+    color: white;
+    font-size: 4rem;
+}
+
+.carrusel {
+    margin: 0;
+    height: 22.3rem;
+    padding: 4rem;
+    padding-right: 0;
+    text-align: justify;
+    background-color: #D22B1C;
+    font-weight: bolder;
+    display: flex;
+    flex-direction: column;
+    clip-path: polygon(0% 0%, 60% 0%, 45% 100%, 0% 100%);
+}
+
+.principal {
+    position: relative;
+}
+
+.carrusel-imagenes {
+    position: fixed; /* Cambia a una posición fija para evitar que la página se desplace */
+    right: 0;
+    top: 0;
+    transform: translateX(40%); /* Centra el carrusel en relación con la mitad de la anchura de la página */
+    width: 100%; /* Ajusta el ancho al 100% del viewport width */
+    height: 100%; /* Ajusta la altura al 100% del viewport height */
+    z-index: -1;
+    overflow: hidden; /* Recorta cualquier contenido que desborde */
+}
+
+
