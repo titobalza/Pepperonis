@@ -39,6 +39,27 @@
       height:473px;
   }
   
-  
+  .footer {
+    background-color: #D22B1C;
+    position: relative;
+    height: 100px; /* Ajusta la altura según tus necesidades */
+}
 
+.wave-effect {
+  position: relative;
+  height: 100px; /* Ajusta la altura de la onda */
+}
+
+.wave-effect::before {
+  content: "";
+  position: absolute;
+  top: -50px; /* Controla la posición vertical de la onda */
+  left: 50%; /* Coloca el óvalo en el centro horizontal */
+  transform: translateX(-50%);
+  width: 100%; /* Doble del ancho para asegurarse de cubrir el contenedor */
+  height: 100px; /* Ajusta la altura de la onda */
+  background: #D22B1C ;
+  border-radius: 50%;
+  z-index: 1;
+}
 
