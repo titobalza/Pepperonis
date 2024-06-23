@@ -1,25 +1,51 @@
+// src/js/views/LoginForm.js
 import React, { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Context } from "../store/appContext";
-
+import { auth, provider } from '../configSignIn/firebase';
+import { signInWithEmailAndPassword, signInWithPopup } from 'firebase/auth';
 import "../../styles/demo.css";
+
 const LoginForm = () => {
   const { store, actions } = useContext(Context);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const token = sessionStorage.getItem("token");
   const navigate = useNavigate();
-  const handleClick = () => {
-    actions.login(email, password);
+  
+  const handleEmailPasswordLogin = async () => {
+    try {
+      const userCredential = await signInWithEmailAndPassword(auth, email, password);
+      const user = userCredential.user;
+      console.log('Logged in user:', user);
+      sessionStorage.setItem("token", user.accessToken);
+      navigate("/");
+    } catch (error) {
+      console.error("Error logging in with email and password:", error);
+    }
   };
-  if (token && token != "" && token != undefined) navigate("/");
+
+  const handleGoogleLogin = async () => {
+    try {
+      const result = await signInWithPopup(auth, provider);
+      const user = result.user;
+      console.log('Logged in user with Google:', user);
+      sessionStorage.setItem("token", user.accessToken);
+      navigate("/");
+    } catch (error) {
+      console.error("Error logging in with Google:", error);
+    }
+  };
+  const handleLogout = () => {
+    sessionStorage.removeItem("token");
+    navigate(0);
+  };
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Perform login logic here
-    console.log("Login form submitted!");
-    console.log("Email:", email);
-    console.log("Password:", password);
+    handleEmailPasswordLogin();
   };
+  
+  if (token && token !== "" && token !== undefined) navigate("/");
 
   return (
     <div className="container">
@@ -28,7 +54,10 @@ const LoginForm = () => {
           <h2 className="text-center mb-4">Login</h2>
           {token && token !== "" && token !== undefined ? (
             <>
-              <p>You are Logged in with the token: {token}</p>
+              <p>You are already logged in.</p>
+              <button className="btn btn-primary" onClick={handleLogout}>
+                Log Out
+              </button>
             </>
           ) : (
             <form onSubmit={handleSubmit}>
@@ -54,14 +83,17 @@ const LoginForm = () => {
                   required
                 />
               </div>
-              <button
-                type="button"
-                className="btn btn-primary mt-2"
-                onClick={handleClick}
-              >
+              <button type="submit" className="btn btn-primary mt-2">
                 Login
               </button>
-            </form>
+              <button
+                type="button"
+                className="btn btn-secondary mt-2"
+                onClick={handleGoogleLogin}
+              >
+                Login with Google
+              </button>
+              </form>
           )}
         </div>
       </div>

@@ -20,7 +20,7 @@ export const Navbar = () => {
             <Link to="/nosotros" className="btn btn-outline-dark btn-square d-flex align-items-center justify-content-center" >NOSOTROS</Link>
           </li>
           <li className="nav-item d-flex align-items-stretch">
-            <Link to="/crear-cuenta" className="btn btn-outline-dark btn-square d-flex align-items-center justify-content-center" >CREAR<br />CUENTA</Link>
+            <Link to="/signup" className="btn btn-outline-dark btn-square d-flex align-items-center justify-content-center" >CREAR<br />CUENTA</Link>
           </li>
           <li className="nav-item d-flex align-items-stretch">
             <Link to="/login" className="btn btn-outline-dark btn-square d-flex align-items-center justify-content-center bg-D59E3B">INICIAR<br />SESIÓN</Link>
