@@ -22,7 +22,7 @@
 }
 
 .carrusel-imagenes {
-    position: fixed; /* Cambia a una posición fija para evitar que la página se desplace */
+    position: absolute; /* Cambia a una posición fija para evitar que la página se desplace */
     right: 0;
     top: 0;
     transform: translateX(40%); /* Centra el carrusel en relación con la mitad de la anchura de la página */
@@ -30,6 +30,15 @@
     height: 100%; /* Ajusta la altura al 100% del viewport height */
     z-index: -1;
     overflow: hidden; /* Recorta cualquier contenido que desborde */
+}
+
+.segundaparte{
+    /* Ajusta más propiedades de fondo según sea necesario */
+    background-size: cover; /* Ajusta el tamaño de la imagen al contenedor */
+    background-position: center; /* Centra la imagen en el contenedor */
+    color: black; /* Cambia el color del texto para que sea visible sobre la imagen */
+    opacity: 100%;
+    height:500px;
 }
 
 
