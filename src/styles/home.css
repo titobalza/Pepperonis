@@ -32,4 +32,13 @@
     overflow: hidden; /* Recorta cualquier contenido que desborde */
 }
 
+.segundaparte{
+    /* Ajusta más propiedades de fondo según sea necesario */
+    background-size: cover; /* Ajusta el tamaño de la imagen al contenedor */
+    background-position: center; /* Centra la imagen en el contenedor */
+    color: black; /* Cambia el color del texto para que sea visible sobre la imagen */
+    opacity: 100%;
+    height:500px;
+}
+
 
