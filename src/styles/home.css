@@ -22,7 +22,7 @@
 }
 
 .carrusel-imagenes {
-    position: fixed; /* Cambia a una posición fija para evitar que la página se desplace */
+    position: absolute; /* Cambia a una posición fija para evitar que la página se desplace */
     right: 0;
     top: 0;
     transform: translateX(40%); /* Centra el carrusel en relación con la mitad de la anchura de la página */
