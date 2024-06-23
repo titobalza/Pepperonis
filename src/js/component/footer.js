@@ -4,7 +4,7 @@ import backgroundImage from '../../img/fondo.png';
 
 export const Footer = () => (
     <footer className="container-fluid" style={{
-		backgroundImage: ` url(${footerImage}),url(${backgroundImage})`,
+		backgroundImage: `url(${footerImage}), url(${backgroundImage})`,
 		backgroundSize: "cover",
 		backgroundPosition: "center",
 		backgroundRepeat: "no-repeat",
@@ -13,7 +13,14 @@ export const Footer = () => (
 		width: '100%',
 	}} >
 		<div className="footer-content">
-			// Aquí puedes agregar tus elementos
+			<div className="footer-column" style={{ marginTop: "120px" }}>
+				<ul style={{ listStyleType: "none", padding:"2rem" }}>
+					<li><a href="/" style={{ color: "white" , textDecoration: "none"}}>Inicio</a></li>
+					<li><a href="/nosotros"style={{ color: "white" , textDecoration: "none"}}>Nosotros</a></li>
+					<li><a href="/signup"style={{ color: "white" , textDecoration: "none"}}>Crear Cuenta</a></li>
+					<li><a href="/login"style={{ color: "white" , textDecoration: "none"}}>Iniciar Sesión</a></li>
+				</ul>
+			</div>
 		</div>
 	</footer>
 );
