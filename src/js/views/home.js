@@ -13,7 +13,5 @@ export const Home = () => (
 				<Carousel />
 			</div>
 		</div>
-		
     </div>
-	
 );
