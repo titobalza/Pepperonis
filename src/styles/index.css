@@ -1,0 +1,44 @@
+/* 
+    General Styles
+*/
+.btn-square {
+    background-color: white;  
+    border-radius: 0;
+    outline-width: 0;
+    border-top: none;
+    border-right: none;
+    font-weight: bolder;
+  }
+  
+  .btn-square:hover {
+    background-color: red;
+  }
+  
+  .btn-square:focus {
+    outline-color: black;
+    border-left: 2px solid black;
+    border-right: 2px solid black;
+    border-bottom: 2px solid black; 
+  }
+
+  .bg-D59E3B {
+    background-color: #D59E3B;
+    padding-top: 0;
+    padding-bottom: 0;
+    color: #F7EF11;
+  }
+
+  .primercuadro{
+      background-size:auto;
+      background-position: center;
+      background-repeat: no-repeat;
+      display: flex;
+      flex-direction: column;
+      justify-content:left;
+      padding: 8rem;
+      height:473px;
+  }
+  
+  
+
+
