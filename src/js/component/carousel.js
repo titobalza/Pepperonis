@@ -5,7 +5,7 @@ import 'slick-carousel/slick/slick-theme.css';
 
 export const Carousel = () => {
     const settings = {
-      dots: true,
+        dots: true,
         infinite: true,
         speed: 800,
         slidesToShow: 1,
@@ -17,16 +17,16 @@ export const Carousel = () => {
     return (
         <Slider {...settings}>
             <div>
-                <img src={require('../../img/image1.png').default} alt="Image 1" />
+                <img src={require('../../img/image1.png').default} alt="Image 1" style={{ width: '100%', height: 'auto' }} />
             </div>
             <div>
-                <img src={require('../../img/image2.png').default} alt="Image 2" />
+                <img src={require('../../img/image2.png').default} alt="Image 2" style={{ width: '100%', height: 'auto' }} />
             </div>
             <div>
-                <img src={require('../../img/image3.png').default} alt="Image 3" />
+                <img src={require('../../img/image3.png').default} alt="Image 3" style={{ width: '100%', height: 'auto' }} />
             </div>
-            <div>
-                <img src={require('../../img/image4.png').default} alt="Image 4" />
+            <div id='anomalia'>
+                <img src={require('../../img/image4.png').default} alt="Image 4" style={{ width: '100%', height: 'auto' }} />
             </div>
         </Slider>
     );
