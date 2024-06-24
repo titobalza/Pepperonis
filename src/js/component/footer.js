@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import footerImage from '../../img/footer1.png';
 import backgroundImage from '../../img/fondo.png';
 import logo from "../../img/logo.png";
+import FabButton from "../component/FabButton";
 
 
 export const Footer = () => {
@@ -25,26 +26,39 @@ export const Footer = () => {
 			width: '100%',
 		}} >
 			<div className="footer-content">
-				<div className="footer-column" style={{ marginTop: "120px" }}>
+				<div className="footer-row">
+					<div className="footer-column ">
+					<img src={logo} alt="Logo" className="img-fluid prom-img" />
+						<FabButton/>
+						
+					</div>
 					<ul style={{ listStyleType: "none", padding:"2rem" }}>
-						<li><a href="/" style={{ color: "white" , textDecoration: "none"}}>Inicio</a></li>
-						<li><a href="/nosotros"style={{ color: "white" , textDecoration: "none"}}>Nosotros</a></li>
-						{token ? (
-							<>
-							<li><a href="/pedido"style={{ color: "white" , textDecoration: "none"}}>Mi Pedido</a></li>
-							<li><a href="/login"style={{ color: "white" , textDecoration: "none"}}>Mi Cuenta</a></li>
-							</>
-						) : (
-							<>
-							<li><a href="/signup"style={{ color: "white" , textDecoration: "none"}}>Crear Cuenta</a></li>
-							<li><a href="/login"style={{ color: "white" , textDecoration: "none"}}>Iniciar Sesión</a></li>
-							</>
-						)}
-					</ul>
-					<img src={logo} alt="Logo" className="img-fluid promo-img" />
+							<li><a href="/" style={{ color: "white" , textDecoration: "none"}}>Inicio</a></li>
+							<li><a href="/nosotros"style={{ color: "white" , textDecoration: "none"}}>Nosotros</a></li>
+							{token ? (
+								<>
+								<li><a href="/pedido"style={{ color: "white" , textDecoration: "none"}}>Mi Pedido</a></li>
+								<li><a href="/login"style={{ color: "white" , textDecoration: "none"}}>Mi Perfil</a></li>
+								</>
+							) : (
+								<>
+								<li><a href="/signup"style={{ color: "white" , textDecoration: "none"}}>Crear Cuenta</a></li>
+								<li><a href="/login"style={{ color: "white" , textDecoration: "none"}}>Iniciar Sesión</a></li>
+								</>
+							)}
+						</ul>
 				</div>
 			</div>
 			
 		</footer>
 	);
 };
+
+
+
+
+
+
+
+
+
