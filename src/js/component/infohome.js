@@ -1,13 +1,11 @@
 import React from "react";
-import pizza from "../../img/pizza.png"; // Asegúrate de tener la imagen de la pizza
-import cocaCola from "../../img/cocaCola.png"; // Asegúrate de tener la imagen de la Coca-Cola
 import "../../styles/promocion.css"; // Archivo CSS para estilos personalizados'
 import Carrusel from "../component/promo";
 
 export const Promocion = () => {
   return (
     <div className="container my-5 mt-0">
-      <div className="row align-items-center p-4 ">
+      <div className=" promos row align-items-center">
         <div className="col-md-6 d-flex align-items-center justify-content-center position-relative promo-box">
           <Carrusel/>
         </div>

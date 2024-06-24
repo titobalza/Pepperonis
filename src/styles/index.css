@@ -43,5 +43,24 @@
     z-index: -1;
   }
 
+.promos{
+  padding-top: 90px;
+}
 
+.titulo {
+  color: yellow;
+  text-shadow: 2px 2px orange;
+  font-weight: bold;
+  opacity: 100%;
+}
 
+.parrafo {
+  text-indent: 20px;
+  text-align: justify;
+  opacity: 100%;
+  color: black;
+}
+
+.fondo-transparente {
+  background-color: rgba(255, 0, 0, 0.5); /* Cambia los valores RGB y el valor de opacidad (0.5 en este ejemplo) según tus necesidades */
+}

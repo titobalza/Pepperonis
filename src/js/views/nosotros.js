@@ -11,24 +11,17 @@ const Nosotros = () => {
         backgroundSize: "cover",
         backgroundPosition: "center",
         backgroundRepeat: "no-repeat",
-        minHeight: "100vh"
+        minHeight: "100vh",
       }}
     >
-      <div
-        className="primercuadro p-4 mb-4"
-        style={{ 
-          backgroundImage: `url(${caja})`,
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-          backgroundRepeat: "no-repeat"
-        }}
-      >
-        <h1 className="mb-3">Historia de nuestra pizzería</h1>
-        <p>
+      <div className=" text-white p-4 shadow fondo-transparente" style={{ borderStartStartRadius: '20%' ,borderEndEndRadius:'20%'}}>
+        <h1 className="mb-3 titulo">Historia de Nuestra Pizzería</h1>
+        <p className="parrafo">
           En nuestra pizzería imaginaria, nos enorgullece ofrecer las mejores pizzas de la ciudad. Nuestra historia comenzó hace más de 20 años, cuando nuestro fundador, Juan Pérez, decidió abrir un pequeño local de pizzas en el corazón de la ciudad.
+          Desde entonces, nos hemos dedicado a perfeccionar nuestras recetas y técnicas de preparación para garantizar que cada pizza sea una experiencia única y deliciosa. Nuestro equipo de talentosos chefs trabaja arduamente para seleccionar los ingredientes más frescos y de alta calidad, desde la masa hasta los ingredientes para el relleno.
         </p>
       </div>
-      <div className="bg-dark p-3 mb-3 rounded">
+      <div className="bg-dark p-3 mb-3 rounded mt-4">
         <p>
           Desde entonces, nos hemos dedicado a perfeccionar nuestras recetas y a utilizar los ingredientes más frescos y de la más alta calidad. Nuestro objetivo siempre ha sido brindar a nuestros clientes una experiencia culinaria excepcional y satisfacer sus paladares exigentes.
         </p>

@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import pizza from "../../img/pizza.png"; // Asegúrate de tener la imagen de la pizza
 import cocaCola from "../../img/cocaCola.png"; // Asegúrate de tener la imagen de la Coca-Cola
+import pasta from "../../img/pasta.jpg";
+import risotto from "../../img/risotto.png";
 
 const Carrusel = () => {
   const [contenido, setContenido] = useState([
@@ -11,13 +13,13 @@ const Carrusel = () => {
       <h1 className="display-3 fw-bold">Ref. 10</h1>
     </div>,
     <div>
-      <img src={pizza} alt="Pizza" className="img-fluid promo-img" />
+      <img src={pasta} alt="Pizza" className="img-fluid promo-img" />
       <img src={cocaCola} alt="Coca Cola" className="img-fluid promo-img" />
       <h3 className="fw-bold mt-3">POR TAN SOLO</h3>
       <h1 className="display-3 fw-bold">Ref. 20</h1>
     </div>,
     <div>
-      <img src={pizza} alt="Pizza" className="img-fluid promo-img" />
+      <img src={risotto} alt="Pizza" className="img-fluid promo-img" />
       <img src={cocaCola} alt="Coca Cola" className="img-fluid promo-img" />
       <h3 className="fw-bold mt-3">POR TAN SOLO</h3>
       <h1 className="display-3 fw-bold">Ref. 999</h1>
