@@ -8,7 +8,7 @@ export const Footer = () => (
 		backgroundSize: "cover",
 		backgroundPosition: "center",
 		backgroundRepeat: "no-repeat",
-		height: "50vh",
+		height: "62vh",
 		position: 'absolute', // Ajusta este valor según tus necesidades
 		width: '100%',
 	}} >
