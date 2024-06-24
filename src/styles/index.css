@@ -63,4 +63,6 @@
 
 .fondo-transparente {
   background-color: rgba(255, 0, 0, 0.5); /* Cambia los valores RGB y el valor de opacidad (0.5 en este ejemplo) según tus necesidades */
+  border-start-start-radius: 20%;
+  border-end-end-radius:20%;
 }
