@@ -10,6 +10,7 @@ const LoginForm = () => {
   const { store, actions } = useContext(Context);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
   const token = sessionStorage.getItem("token");
   const navigate = useNavigate();
   
@@ -22,6 +23,7 @@ const LoginForm = () => {
       navigate("/");
     } catch (error) {
       console.error("Error logging in with email and password:", error);
+      setError(error.message);
     }
   };
 
@@ -34,6 +36,7 @@ const LoginForm = () => {
       navigate("/");
     } catch (error) {
       console.error("Error logging in with Google:", error);
+      setError(error.message); 
     }
   };
   const handleLogout = () => {
@@ -82,6 +85,7 @@ const LoginForm = () => {
                   onChange={(e) => setPassword(e.target.value)}
                   required
                 />
+                {error && <p className="text-danger">{error}</p>}
               </div>
               <button type="submit" className="btn btn-primary mt-2">
                 Login
