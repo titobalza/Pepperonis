@@ -28,8 +28,10 @@ export const Footer = () => {
 			<div className="footer-content">
 				<div className="footer-row">
 					<div className="footer-column ">
-					<img src={logo} alt="Logo" className="img-fluid prom-img" />
-						<FabButton/>
+
+					<div><FabButton/></div>
+					<p style={{color:'white',paddingTop:'5px'}}>Contáctanos</p>
+					<div className="logofooter"><img src={logo} alt="Logo" className="img-fluid prom-img" /></div>
 						
 					</div>
 					<ul style={{ listStyleType: "none", padding:"2rem" }}>
