@@ -38,7 +38,7 @@ const LoginForm = () => {
   };
   const handleLogout = () => {
     sessionStorage.removeItem("token");
-    navigate(0);
+    navigate("/");
   };
   const handleSubmit = (e) => {
     e.preventDefault();
