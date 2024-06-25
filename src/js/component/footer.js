@@ -3,6 +3,7 @@ import footerImage from '../../img/footer1.png';
 import backgroundImage from '../../img/fondo.png';
 import logo from "../../img/logo.png";
 import FabButton from "../component/FabButton";
+import { Link } from "react-router-dom";
 
 
 export const Footer = () => {
@@ -35,17 +36,17 @@ export const Footer = () => {
 						
 					</div>
 					<ul style={{ listStyleType: "none", padding:"2rem" }}>
-							<li><a href="/" style={{ color: "white" , textDecoration: "none"}}>Inicio</a></li>
-							<li><a href="/nosotros"style={{ color: "white" , textDecoration: "none"}}>Nosotros</a></li>
+							<li><Link to="/"  style={{ color: "white" , textDecoration: "none"}}>Inicio</Link></li>
+							<li><Link to="/nosotros"  style={{ color: "white" , textDecoration: "none"}}>Nosotros</Link></li>
 							{token ? (
 								<>
-								<li><a href="/pedido"style={{ color: "white" , textDecoration: "none"}}>Mi Pedido</a></li>
-								<li><a href="/login"style={{ color: "white" , textDecoration: "none"}}>Mi Perfil</a></li>
+								<li><Link to="/pedido"  style={{ color: "white" , textDecoration: "none"}}>Mi Pedido</Link></li>
+								<li><Link to="/login"  style={{ color: "white" , textDecoration: "none"}}>Mi Cuenta</Link></li>
 								</>
 							) : (
 								<>
-								<li><a href="/signup"style={{ color: "white" , textDecoration: "none"}}>Crear Cuenta</a></li>
-								<li><a href="/login"style={{ color: "white" , textDecoration: "none"}}>Iniciar Sesión</a></li>
+								<li><Link to="/signup"  style={{ color: "white" , textDecoration: "none"}}>Crear Cuenta</Link></li>
+								<li><Link to="/login"  style={{ color: "white" , textDecoration: "none"}}>Iniciar Sesión</Link></li>
 								</>
 							)}
 						</ul>
