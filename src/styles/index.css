@@ -8,6 +8,7 @@
     border-top: none;
     border-right: none;
     font-weight: bolder;
+    
   }
   
   .btn-square:hover {
@@ -26,6 +27,7 @@
     padding-top: 0;
     padding-bottom: 0;
     color: #F7EF11;
+    
   }
 
   .primercuadro{
@@ -37,6 +39,7 @@
       justify-content:left;
       padding: 8rem;
       height:473px;
+      
   }
 
   .container-fluid{

@@ -15,7 +15,7 @@ export const Navbar = () => {
   }, []);
 
   return (
-    <nav className="navbar navbar-light bg-D59E3B ">
+    <nav className="navbar navbar-light bg-D59E3B ps-3 ">
       <div className="sidel d-flex g-1">
         <img src={icono2} alt="Icono" className="navbar-brand mb-0 h1" />
         <Link to="/">
@@ -44,7 +44,7 @@ export const Navbar = () => {
               <li className="nav-item d-flex align-items-stretch">
                 <Link to="/signup" className="btn btn-outline-dark btn-square d-flex align-items-center justify-content-center" >CREAR<br />CUENTA</Link>
               </li>
-              <li className="nav-item d-flex align-items-stretch">
+              <li className="nav-item d-flex align-items-stretch border border-dark">
                 <Link to="/login" className="btn btn-outline-dark btn-square d-flex align-items-center justify-content-center bg-D59E3B">INICIAR<br />SESIÓN</Link>
               </li>
             </>
