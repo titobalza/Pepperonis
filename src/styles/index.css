@@ -143,3 +143,39 @@
 .logofooter{
   padding-top: 90px;
 }
+
+/* src/styles.css */
+.product {
+  border: 1px solid #ddd;
+  padding: 16px;
+  margin: 16px;
+  text-align: center;
+}
+
+.menu {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.cart {
+  margin-top: 32px;
+}
+
+.cart ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+button {
+  padding: 8px 16px;
+  margin-top: 8px;
+  background-color: #ff6347;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #ff4500;
+}

@@ -33,7 +33,7 @@ export const Navbar = () => {
           {token ? (
             <>
               <li className="nav-item d-flex align-items-stretch">
-              <Link to="/pedido" className="btn btn-outline-dark btn-square d-flex align-items-center justify-content-center" >MI PEDIDO</Link>
+              <Link to="/cart" className="btn btn-outline-dark btn-square d-flex align-items-center justify-content-center" >MI PEDIDO</Link>
             </li>
             <li className="nav-item d-flex align-items-stretch">
               <Link to="/login" className="btn btn-outline-dark btn-square d-flex align-items-center justify-content-center" >MI PERFIL</Link>
