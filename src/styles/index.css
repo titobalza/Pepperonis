@@ -147,6 +147,8 @@
 /* src/styles.css */
 .product {
   border: 1px solid #ddd;
+  background-color: white;
+  border-radius: 10%;
   padding: 16px;
   margin: 16px;
   text-align: center;
@@ -155,7 +157,13 @@
 .menu {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
+  gap: 20px;
+}
+
+input[type="text"], select {
+  margin-bottom: 10px;
+  padding: 10px;
+  font-size: 16px;
 }
 
 .cart {
@@ -178,4 +186,7 @@ button {
 
 button:hover {
   background-color: #ff4500;
+}
+.filter-bar{
+  margin-bottom: 20px;
 }
