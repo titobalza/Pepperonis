@@ -4,6 +4,7 @@ import backgroundImage from '../../img/fondo.png';
 import logo from "../../img/logo.png";
 import FabButton from "../component/FabButton";
 import { Link } from "react-router-dom";
+import FeedbackForm from "./FeedbackForm";
 
 
 export const Footer = () => {
@@ -42,14 +43,17 @@ export const Footer = () => {
 								<>
 								<li><Link to="/pedido"  style={{ color: "white" , textDecoration: "none"}}>Mi Pedido</Link></li>
 								<li><Link to="/login"  style={{ color: "white" , textDecoration: "none"}}>Mi Cuenta</Link></li>
+								<div><FeedbackForm/></div>
 								</>
+								
 							) : (
 								<>
 								<li><Link to="/signup"  style={{ color: "white" , textDecoration: "none"}}>Crear Cuenta</Link></li>
 								<li><Link to="/login"  style={{ color: "white" , textDecoration: "none"}}>Iniciar Sesión</Link></li>
 								</>
 							)}
-						</ul>
+					</ul>
+					
 				</div>
 			</div>
 			
