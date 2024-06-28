@@ -7,7 +7,7 @@ const Menu = ({ addToCart }) => {
   const [searchTerm, setSearchTerm] = useState('');
   const [filter, setFilter] = useState('all');
 
-  const categories = ['all', 'vegetarian', 'meat', 'seafood', 'rissotto', 'bebida'];
+  const categories = ['all', 'slice','pizza','pasta','risotto','bebida'];
 
   // Filtrar productos basado en la búsqueda y el filtro seleccionado
   const filteredProducts = products.filter(product => {

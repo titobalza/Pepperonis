@@ -4,7 +4,7 @@ const Product = ({ product, addToCart }) => {
   return (
     <div className="product">
       <h3>{product.name}</h3>
-      <p>${product.price.toFixed(2)}</p>
+      <p>Bs. {product.price.toFixed(2)}</p>
       <button onClick={() => addToCart(product)}>Agregar al carrito</button>
     </div>
   );
