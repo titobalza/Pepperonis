@@ -26,14 +26,15 @@ class FeedbackForm extends Component {
 
   render() {
     return (
-      <form onSubmit={this.handleSubmit}>
+      <form onSubmit={this.handleSubmit} style={{display:'flex',flexDirection:'column'}}>
         <textarea
           value={this.state.feedback}
           onChange={this.handleInputChange}
           placeholder="Redacta un feedback..."
           required
+          style={{height:'200px'}}
         />
-        <button type="submit" style={{ float: 'right' }}>Enviar</button>
+        <button type="submit" style={{width:'90px'}}>Enviar</button>
       </form>
     );
   }
