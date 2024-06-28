@@ -3,10 +3,11 @@ import Product from '../component/Product';
 import products from '../component/products';
 import icono from "../../img/fondo.png";
 
-
 const Menu = ({ addToCart }) => {
   const [searchTerm, setSearchTerm] = useState('');
   const [filter, setFilter] = useState('all');
+
+  const categories = ['all', 'vegetarian', 'meat', 'seafood', 'rissotto', 'bebida'];
 
   // Filtrar productos basado en la búsqueda y el filtro seleccionado
   const filteredProducts = products.filter(product => {
@@ -23,23 +24,24 @@ const Menu = ({ addToCart }) => {
       backgroundRepeat: "no-repeat",
       minHeight: "100vh",
     }}>
-      <h2>Menú Pepperoni's</h2>
-      <div>
+      <div className="filter-bar">
         <input
           type="text"
           placeholder="Buscar producto..."
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
         />
-        <select value={filter} onChange={(e) => setFilter(e.target.value)}>
-          <option value="all">Todos</option>
-          <option value="vegetarian">Vegetariano</option>
-          <option value="bebida">Bebida</option>
-          <option value="rissotto">Rissotto</option>
-          <option value="meat">Carne</option>
-          <option value="seafood">Mariscos</option>
-          {/* Agrega más opciones según las categorías de tus productos */}
-        </select>
+        <div className="category-buttons">
+          {categories.map((category) => (
+            <button
+              key={category}
+              className={filter === category ? 'active' : ''}
+              onClick={() => setFilter(category)}
+            >
+              {category.charAt(0).toUpperCase() + category.slice(1)}
+            </button>
+          ))}
+        </div>
       </div>
       <div className="menu">
         {filteredProducts.map((product) => (
@@ -51,3 +53,4 @@ const Menu = ({ addToCart }) => {
 };
 
 export default Menu;
+
