@@ -20,7 +20,6 @@ class FeedbackForm extends Component {
       alert('El campo de feedback no puede estar vacío.');
     } else {
       // Aquí puedes manejar el envío del feedback (por ejemplo, enviarlo a una API o actualizar el estado de un componente padre)
-      console.log(this.state.feedback);
       this.setState({ feedback: '' }); // Limpia el campo de feedback después de enviarlo
     }
   }
