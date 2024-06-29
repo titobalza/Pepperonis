@@ -16,10 +16,10 @@ app.get('/feedback', (req, res) => {
 
 // Ruta para crear un nuevo feedback
 app.post('/feedback', (req, res) => {
-  const { feedback } = req.body;
+  const { feedback, email } = req.body;
 
-  if (feedback) {
-    feedbacks.push({ feedback });
+  if (feedback && email) {
+    feedbacks.push({ feedback, email });
     res.status(201).json({ message: 'Feedback recibido' });
   } else {
     res.status(400).json({ message: 'Todos los campos son obligatorios' });
