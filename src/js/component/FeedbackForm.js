@@ -1,40 +1,71 @@
-import React, { Component } from 'react';
+// src/js/component/feedbackform.js
+import React, { Component } from "react";
 
 class FeedbackForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      feedback: ''
+      feedback: "",
+      email: "",
+      message: ""
     };
   }
 
   handleInputChange = (event) => {
+    const { name, value } = event.target;
     this.setState({
-      feedback: event.target.value
+      [name]: value
     });
-  }
+  };
 
-  handleSubmit = (event) => {
+  handleSubmit = async (event) => {
     event.preventDefault();
-    if (this.state.feedback === '') {
-      alert('El campo de feedback no puede estar vacío.');
+    const { feedback, email } = this.state;
+
+    if (feedback === "" || email === "") {
+      alert("Todos los campos son obligatorios.");
     } else {
-      // Aquí puedes manejar el envío del feedback (por ejemplo, enviarlo a una API o actualizar el estado de un componente padre)
-      this.setState({ feedback: '' }); // Limpia el campo de feedback después de enviarlo
+      try {
+        const response = await fetch("http://localhost:3001/feedback", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ feedback, email }),
+        });
+
+        if (response.ok) {
+          this.setState({ feedback: "", email: "", message: "Feedback enviado con éxito!" });
+        } else {
+          this.setState({ message: "Error al enviar el feedback." });
+        }
+      } catch (error) {
+        this.setState({ message: "Error al enviar el feedback." });
+      }
     }
-  }
+  };
 
   render() {
     return (
-      <form onSubmit={this.handleSubmit} style={{display:'flex',flexDirection:'column'}}>
+      <form onSubmit={this.handleSubmit} style={{ display: "flex", flexDirection: "column" }}>
         <textarea
+          name="feedback"
           value={this.state.feedback}
           onChange={this.handleInputChange}
           placeholder="Redacta un feedback..."
           required
-          style={{height:'200px'}}
+          style={{ height: "100px" }}
         />
-        <button type="submit" style={{width:'90px'}}>Enviar</button>
+        <input
+          type="email"
+          name="email"
+          value={this.state.email}
+          onChange={this.handleInputChange}
+          placeholder="Introduce tu email..."
+          required
+        />
+        <button type="submit" style={{ width: "90px" }}>Enviar</button>
+        {this.state.message && <p>{this.state.message}</p>}
       </form>
     );
   }

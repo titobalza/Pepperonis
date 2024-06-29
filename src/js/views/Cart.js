@@ -6,7 +6,7 @@ const Cart = ({ cart }) => {
 
   return (
     <div className="cart">
-      <h3>Carrito de Compras</h3>
+      <h3>Su pedido:</h3>
       <ul>
         {cart.map((product, index) => (
           <li key={index}>

@@ -36,7 +36,7 @@ export const Footer = () => {
 					<div className="logofooter"><img src={logo} alt="Logo" className="img-fluid prom-img" /></div>
 						
 					</div>
-					<ul style={{ listStyleType: "none",paddingTop:'120px',paddingRight:'70px',paddingBottom:'10px'}}>
+					<ul style={{ listStyleType: "none",paddingTop:'160px',paddingRight:'70px',paddingBottom:'10px'}}>
 							<li><Link to="/"  style={{ color: "white" , textDecoration: "none"}}>Inicio</Link></li>
 							<li><Link to="/nosotros"  style={{ color: "white" , textDecoration: "none"}}>Nosotros</Link></li>
 							{token ? (
