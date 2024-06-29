@@ -8,6 +8,7 @@ import Menu from "./views/menu";
 import LoginForm from "./views/login";
 import SignUpForm from "./views/signup";
 import Nosotros from "./views/nosotros";
+import Profile from "./views/profile";
 import { Single } from "./views/single";
 import injectContext from "./store/appContext";
 import Cart from "./views/Cart";
@@ -36,6 +37,7 @@ const Layout = () => {
             <Route element={<LoginForm />} path="/login" />
             <Route element={<SignUpForm />} path="/signup" />
             <Route element={<Nosotros />} path="/nosotros" />
+            <Route element={<Profile />} path="/profile" />
             <Route path="/menu" element={<Menu addToCart={addToCart} />} />
             <Route path="/cart" element={<Cart cart={cart} />} />
             <Route path="/single/:theid" element={<Single />} />

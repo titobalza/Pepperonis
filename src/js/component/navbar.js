@@ -36,7 +36,7 @@ export const Navbar = () => {
               <Link to="/cart" className="btn btn-outline-dark btn-square d-flex align-items-center justify-content-center" >MI PEDIDO</Link>
             </li>
             <li className="nav-item d-flex align-items-stretch">
-              <Link to="/login" className="btn btn-outline-dark btn-square d-flex align-items-center justify-content-center" >MI PERFIL</Link>
+              <Link to="/profile" className="btn btn-outline-dark btn-square d-flex align-items-center justify-content-center" >MI PERFIL</Link>
             </li>
             </>
           ) : (
