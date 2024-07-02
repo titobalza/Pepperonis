@@ -9,13 +9,15 @@ import FeedbackForm from "./FeedbackForm";
 
 export const Footer = () => {
 	const [token, setToken] = useState(sessionStorage.getItem("token"));
+	const [admin, setAdmin] = useState(sessionStorage.getItem("admin"));
 	useEffect(() => {
 		const intervalId = setInterval(() => {
-		setToken(sessionStorage.getItem("token"));
+		  setToken(sessionStorage.getItem("token"));
+		  setAdmin(sessionStorage.getItem("admin"));
 		}, 1000);
-
+	
 		return () => clearInterval(intervalId);
-	}, []);
+	  }, []);
 
 	return (
 		<footer className="container-fluid" style={{
@@ -39,7 +41,7 @@ export const Footer = () => {
 					<ul style={{ listStyleType: "none",paddingTop:'160px',paddingRight:'70px',paddingBottom:'10px'}}>
 							<li><Link to="/"  style={{ color: "white" , textDecoration: "none"}}>Inicio</Link></li>
 							<li><Link to="/nosotros"  style={{ color: "white" , textDecoration: "none"}}>Nosotros</Link></li>
-							{token ? (
+							{token && !admin ? (
 								<div style={{display:'flex',flexDirection:'row'}}>
 								<div>
 								<li><Link to="/pedido"  style={{ color: "white" , textDecoration: "none"}}>Mi Pedido</Link></li>
@@ -47,7 +49,11 @@ export const Footer = () => {
 								</div>
 								<div style={{paddingLeft:'50px',marginBottom:'0px'}}><FeedbackForm/></div>
 								</div>
-								
+							) : admin ? (
+								<>
+								  <li><Link to="/admin"  style={{ color: "white" , textDecoration: "none"}}>Modificar Menú</Link></li>
+								  <li><Link to="/login"  style={{ color: "white" , textDecoration: "none"}}>Administrador</Link></li>
+								</>
 							) : (
 								<>
 								<li><Link to="/signup"  style={{ color: "white" , textDecoration: "none"}}>Crear Cuenta</Link></li>
