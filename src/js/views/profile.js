@@ -1,6 +1,6 @@
 // Profile.js
 import React, { useState } from 'react';
-import './Profile.css';
+import '../../styles/profile.css';
 import icono from "../../img/fondo.png";
 
 

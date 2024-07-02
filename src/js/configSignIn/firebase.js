@@ -1,9 +1,12 @@
 import { getAuth, GoogleAuthProvider } from "firebase/auth";
 import { initializeApp } from "firebase/app";
+import { getDatabase, ref, onValue } from "firebase/database";
+
 
 const firebaseConfig = {
   apiKey: "AIzaSyCXgzaHd-Z_q0FR6Nqr8_7bI8XxuI8pdTc",
   authDomain: "microproyecto2-42015.firebaseapp.com",
+  databaseURL: "https://microproyecto2-42015-default-rtdb.europe-west1.firebasedatabase.app",
   projectId: "microproyecto2-42015",
   storageBucket: "microproyecto2-42015.appspot.com",
   messagingSenderId: "505486980081",
@@ -14,4 +17,5 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 const provider = new GoogleAuthProvider();
-export { auth, provider };
+const database = getDatabase(app);
+export { auth, provider, database};
