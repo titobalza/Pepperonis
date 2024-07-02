@@ -1,4 +1,3 @@
-// src/js/views/LoginForm.js
 import React, { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Context } from "../store/appContext";
@@ -10,8 +9,10 @@ const LoginForm = () => {
   const { store, actions } = useContext(Context);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [isAdmin, setIsAdmin] = useState(false);
   const [error, setError] = useState("");
   const token = sessionStorage.getItem("token");
+  const admin = sessionStorage.getItem("admin");
   const navigate = useNavigate();
   
   const handleEmailPasswordLogin = async () => {
@@ -19,7 +20,11 @@ const LoginForm = () => {
       const userCredential = await signInWithEmailAndPassword(auth, email, password);
       const user = userCredential.user;
       console.log('Logged in user:', user);
-      sessionStorage.setItem("token", user.accessToken);
+      if (isAdmin) {
+        sessionStorage.setItem("admin", user.accessToken);
+      } else {
+        sessionStorage.setItem("token", user.accessToken);
+      }
       navigate("/");
     } catch (error) {
       console.error("Error logging in with email and password:", error);
@@ -32,30 +37,37 @@ const LoginForm = () => {
       const result = await signInWithPopup(auth, provider);
       const user = result.user;
       console.log('Logged in user with Google:', user);
-      sessionStorage.setItem("token", user.accessToken);
+      if (isAdmin) {
+        sessionStorage.setItem("admin", user.accessToken);
+      } else {
+        sessionStorage.setItem("token", user.accessToken);
+      }
       navigate("/");
     } catch (error) {
       console.error("Error logging in with Google:", error);
       setError(error.message); 
     }
   };
+  
   const handleLogout = () => {
     sessionStorage.removeItem("token");
+    sessionStorage.removeItem("admin");
     navigate("/");
   };
+  
   const handleSubmit = (e) => {
     e.preventDefault();
     handleEmailPasswordLogin();
   };
   
-  if (token && token !== "" && token !== undefined) navigate("/");
+  if ((token && token !== "" && token !== undefined) || (admin && admin !== "" && admin !== undefined)) navigate("/");
 
   return (
     <div className="container">
       <div className="row justify-content-center mt-5">
         <div className="col-md-6">
           <h2 className="text-center mb-4">Login</h2>
-          {token && token !== "" && token !== undefined ? (
+          {(token && token !== "" && token !== undefined) || (admin && admin !== "" && admin !== undefined) ? (
             <>
               <p>You are already logged in.</p>
               <button className="btn btn-primary" onClick={handleLogout}>
@@ -87,6 +99,16 @@ const LoginForm = () => {
                 />
                 {error && <p className="text-danger">{error}</p>}
               </div>
+              <div className="form-group">
+                <label>
+                  <input
+                    type="checkbox"
+                    checked={isAdmin}
+                    onChange={(e) => setIsAdmin(e.target.checked)}
+                  />
+                  ¿Eres Administrador?
+                </label>
+              </div>
               <button type="submit" className="btn btn-primary mt-2">
                 Login
               </button>
@@ -97,7 +119,7 @@ const LoginForm = () => {
               >
                 Login with Google
               </button>
-              </form>
+            </form>
           )}
         </div>
       </div>
@@ -105,4 +127,4 @@ const LoginForm = () => {
   );
 };
 
-export default LoginForm; 
+export default LoginForm;
