@@ -7,44 +7,44 @@ const ModifyProduct = () => {
   const [products, setProducts] = useState([]);
   const [editingProductId, setEditingProductId] = useState(null);
   const [newProductName, setNewProductName] = useState('');
+  const [newProductCategory, setNewProductCategory] = useState('');
+  const [newProductPrice, setNewProductPrice] = useState('');
 
-  // Recuperar productos al montar el componente
   useEffect(() => {
     const productsRef = ref(database, 'productos');
     onValue(productsRef, (snapshot) => {
       const data = snapshot.val() || {};
       
-  
       const productsArray = [];
-      const categoriesSet = new Set();
-
       Object.keys(data).forEach(category => {
-        categoriesSet.add(category);
-        const categoryProducts = Object.values(data[category]);
-        categoryProducts.forEach(product => {
-          productsArray.push({ ...product, category });
+        const categoryProducts = Object.entries(data[category]);
+        categoryProducts.forEach(([id, product]) => {
+          productsArray.push({ ...product, id, category });
         });
       });
 
-      // Set the products and categories state
       setProducts(productsArray);
-      setCategories(['all', ...Array.from(categoriesSet)]);
     });
   }, []);
 
-  // Función para iniciar la edición de un producto
   const startEditing = (product) => {
     setEditingProductId(product.id);
     setNewProductName(product.name);
+    setNewProductCategory(product.category);
+    setNewProductPrice(product.price);
   };
 
-  // Función para guardar los cambios
-  const saveChanges = (productId) => {
-    const productRef = ref(database, `productos/${productId}`);
-    update(productRef, { name: newProductName }).then(() => {
+  const saveChanges = (product) => {
+    const productRef = ref(database, `productos/${product.category}/${product.id}`);
+    const updatedProduct = {
+      name: newProductName,
+      category: newProductCategory,
+      price: parseFloat(newProductPrice),
+    };
+    update(productRef, updatedProduct).then(() => {
       setProducts((prevProducts) =>
-        prevProducts.map((product) =>
-          product.id === productId ? { ...product, name: newProductName } : product
+        prevProducts.map((p) =>
+          p.id === product.id ? { ...updatedProduct, id: product.id } : p
         )
       );
       setEditingProductId(null);
@@ -57,16 +57,30 @@ const ModifyProduct = () => {
         {products.map((product) => (
           <li key={product.id} className="productx-item">
             {editingProductId === product.id ? (
-              <input
-                type="text"
-                value={newProductName}
-                onChange={(e) => setNewProductName(e.target.value)}
-              />
+              <div>
+                <input
+                  type="text"
+                  value={newProductName}
+                  onChange={(e) => setNewProductName(e.target.value)}
+                />
+                <input
+                  type="text"
+                  value={newProductCategory}
+                  onChange={(e) => setNewProductCategory(e.target.value)}
+                />
+                <input
+                  type="text"
+                  value={newProductPrice}
+                  onChange={(e) => setNewProductPrice(e.target.value)}
+                />
+              </div>
             ) : (
-              <span className="productx-name">{product.name}</span>
+              <span className="productx-details">
+                {product.name} - {product.category} - ${product.price}
+              </span>
             )}
             {editingProductId === product.id ? (
-              <button onClick={() => saveChanges(product.id)}>Guardar</button>
+              <button onClick={() => saveChanges(product)}>Guardar</button>
             ) : (
               <FaEdit className="editx-icon" onClick={() => startEditing(product)} />
             )}

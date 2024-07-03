@@ -11,29 +11,24 @@ const DeleteProduct = () => {
     onValue(productsRef, (snapshot) => {
       const data = snapshot.val() || {};
       
-  
       const productsArray = [];
-      const categoriesSet = new Set();
-
       Object.keys(data).forEach(category => {
-        categoriesSet.add(category);
-        const categoryProducts = Object.values(data[category]);
-        categoryProducts.forEach(product => {
-          productsArray.push({ ...product, category });
+        const categoryProducts = Object.entries(data[category]);
+        categoryProducts.forEach(([id, product]) => {
+          productsArray.push({ ...product, id, category });
         });
       });
 
-      // Set the products and categories state
       setProducts(productsArray);
-      setCategories(['all', ...Array.from(categoriesSet)]);
     });
   }, []);
 
-  // Función para eliminar un producto
-  const deleteProduct = (productId) => {
-    const productRef = ref(database, `productos/${productId}`);
+  const deleteProduct = (product) => {
+    const productRef = ref(database, `productos/${product.category}/${product.id}`);
     remove(productRef).then(() => {
-      setProducts((prevProducts) => prevProducts.filter(product => product.id !== productId));
+      setProducts((prevProducts) =>
+        prevProducts.filter((p) => p.id !== product.id)
+      );
     });
   };
 
@@ -42,8 +37,10 @@ const DeleteProduct = () => {
       <ul>
         {products.map((product) => (
           <li key={product.id} className="productx-item">
-            <span className="productx-name">{product.name}</span> 
-            <FaTrashAlt className="trashx-icon" onClick={() => deleteProduct(product.id)} />
+            <span className="productx-details">
+              {product.name} - {product.category} - ${product.price}
+            </span>
+            <FaTrashAlt className="deletex-icon" onClick={() => deleteProduct(product)} />
           </li>
         ))}
       </ul>
