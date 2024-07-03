@@ -212,3 +212,45 @@ button:hover {
   color: white;
 }
 
+.button-admin {
+  width: 1000px; /* Ocupa todo el ancho del contenedor */
+  font-weight: bolder;
+  text-align: left; /* Alinea el texto a la izquierda */
+  padding: 10px; /* Espaciado interno para hacer el botón más grande */
+  color: white; /* Color del texto */
+  border: none; /* Sin borde */
+  cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
+  box-sizing: border-box;
+}
+
+.button-admin:focus {
+  outline: none; /* Elimina el contorno del foco */
+}
+
+.modifmenu{
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.productx-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: white;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.productx-name {
+  flex-grow: 1;
+  margin-right: 10px;
+}
+
+.trashx-icon {
+  cursor: pointer;
+  color: red;
+}

@@ -40,6 +40,7 @@ export const Footer = () => {
 					</div>
 					<ul style={{ listStyleType: "none",paddingTop:'160px',paddingRight:'70px',paddingBottom:'10px'}}>
 							<li><Link to="/"  style={{ color: "white" , textDecoration: "none"}}>Inicio</Link></li>
+							<li><Link to="/menu"  style={{ color: "white" , textDecoration: "none"}}>Menú</Link></li>
 							<li><Link to="/nosotros"  style={{ color: "white" , textDecoration: "none"}}>Nosotros</Link></li>
 							{token && !admin ? (
 								<div style={{display:'flex',flexDirection:'row'}}>
@@ -51,7 +52,8 @@ export const Footer = () => {
 								</div>
 							) : admin ? (
 								<>
-								  <li><Link to="/admin"  style={{ color: "white" , textDecoration: "none"}}>Modificar Menú</Link></li>
+								<li><Link to="/admin"  style={{ color: "white" , textDecoration: "none"}}>Ver Estadísticas</Link></li>
+								  <li><Link to="/modify-menu"  style={{ color: "white" , textDecoration: "none"}}>Modificar Menú</Link></li>
 								  <li><Link to="/login"  style={{ color: "white" , textDecoration: "none"}}>Administrador</Link></li>
 								</>
 							) : (

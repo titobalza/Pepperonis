@@ -44,7 +44,10 @@ export const Navbar = () => {
           ) : admin ? (
             <>
               <li className="nav-item d-flex align-items-stretch">
-                <Link to="/admin" className="btn btn-outline-dark btn-square d-flex align-items-center justify-content-center" >MODIFICAR<br />MENÚ</Link>
+                <Link to="/stats" className="btn btn-outline-dark btn-square d-flex align-items-center justify-content-center" >ESTADÍSTICAS</Link>
+              </li>
+              <li className="nav-item d-flex align-items-stretch">
+                <Link to="/modify-menu" className="btn btn-outline-dark btn-square d-flex align-items-center justify-content-center" >MODIFICAR<br />MENÚ</Link>
               </li>
               <li className="nav-item d-flex align-items-stretch border border-dark">
                 <Link to="/login" className="btn btn-outline-dark btn-square d-flex align-items-center justify-content-center bg-D59E3B">ADMINISTRADOR</Link>
