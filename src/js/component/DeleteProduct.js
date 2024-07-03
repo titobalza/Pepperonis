@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { ref, onValue, remove } from 'firebase/database';
 import { database } from '../configSignIn/firebase';
-import { FaTrashAlt } from 'react-icons/fa'; // Asegúrate de tener react-icons instalado
+import { FaTrashAlt } from 'react-icons/fa'; 
 
 const DeleteProduct = () => {
   const [products, setProducts] = useState([]);
