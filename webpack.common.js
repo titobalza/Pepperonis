@@ -40,8 +40,8 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-        favicon: '4geeks.ico',
-        template: 'template.html'
+        favicon: '/workspace/Microproyecto2/src/img/pizzafood_122700.ico',
+        template: 'dist/index.html'
     }),
     new Dotenv({ safe: true, systemvars: true })
   ]
