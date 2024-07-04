@@ -8,6 +8,7 @@
     border-top: none;
     border-right: none;
     font-weight: bolder;
+    
   }
   
   .btn-square:hover {
@@ -26,6 +27,7 @@
     padding-top: 0;
     padding-bottom: 0;
     color: #F7EF11;
+    
   }
 
   .primercuadro{
@@ -37,8 +39,218 @@
       justify-content:left;
       padding: 8rem;
       height:473px;
+      
   }
-  
-  
+
+  .container-fluid{
+    z-index: -1;
+  }
+
+.promos{
+  padding-top: 90px;
+}
+
+.titulo {
+  color: yellow;
+  text-shadow: 2px 2px orange;
+  font-weight: bold;
+  opacity: 100%;
+}
+
+.parrafo {
+  text-indent: 20px;
+  text-align: justify;
+  opacity: 100%;
+  color: black;
+}
+
+.fondo-transparente {
+  background-color: rgba(255, 0, 0, 0.5); /* Cambia los valores RGB y el valor de opacidad (0.5 en este ejemplo) según tus necesidades */
+  border-start-start-radius: 20%;
+  border-end-end-radius:20%;
+}
 
 
+/* src/FabButton.css */
+.fab-container {
+  position: relative;
+}
+
+.fab {
+  background-color: #F3F111;
+  color: black;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 24px;
+  height: 56px;
+  width: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.fab-buttons {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  bottom: 70px; /* Ajusta según sea necesario */
+  right: 0;
+}
+
+.fab-sub {
+  background-color: #25d366; /* Color para WhatsApp */
+  border: none;
+  border-radius: 50%;
+  color: white;
+  cursor: pointer;
+  font-size: 24px;
+  height: 56px;
+  width: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 10px; /* Espacio entre los botones */
+}
+
+.fab-sub:nth-child(2) {
+  background-color: #C13584; /* Color para Instagram */
+}
+
+
+
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  height: 100%;
+}
+
+.footer-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 100%;
+}
+
+.footer-column {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.logofooter{
+  padding-top: 90px;
+}
+
+.product {
+  border: 1px solid #ddd;
+  background-color: white;
+  border-radius: 10%;
+  padding: 16px;
+  margin: 16px;
+  text-align: center;
+  width:200px;
+}
+
+.menu {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+input[type="text"], select {
+  padding: 10px;
+  font-size: 16px;
+}
+
+.cart {
+  margin-top: 32px;
+}
+
+.cart ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+button {
+  padding: 8px 16px;
+  margin-top: 8px;
+  background-color: #ff6347;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #ff4500;
+}
+.filter-bar{
+  display: flex;
+  align-items: center;
+  justify-content:space-around;
+  margin-bottom: 20px;
+  background-color:#ff6347 ;
+}
+
+.category-buttons {
+  display: flex;
+  gap: 10px;
+}
+
+.category-buttons button {
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+
+.category-buttons button:hover {
+  background-color: #90372b;
+  color: white;
+}
+
+.button-admin {
+  width: 1000px; /* Ocupa todo el ancho del contenedor */
+  font-weight: bolder;
+  text-align: left; /* Alinea el texto a la izquierda */
+  padding: 10px; /* Espaciado interno para hacer el botón más grande */
+  color: white; /* Color del texto */
+  border: none; /* Sin borde */
+  cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
+  box-sizing: border-box;
+}
+
+.button-admin:focus {
+  outline: none; /* Elimina el contorno del foco */
+}
+
+.modifmenu{
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.productx-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: white;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.productx-name {
+  flex-grow: 1;
+  margin-right: 10px;
+}
+
+.trashx-icon {
+  cursor: pointer;
+  color: red;
+}

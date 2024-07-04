@@ -1,34 +1,90 @@
 import React, { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Context } from "../store/appContext";
-
+import { auth, provider } from '../configSignIn/firebase';
+import { signInWithEmailAndPassword, signInWithPopup } from 'firebase/auth';
 import "../../styles/demo.css";
+
 const LoginForm = () => {
   const { store, actions } = useContext(Context);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [isAdmin, setIsAdmin] = useState(false);
+  const [error, setError] = useState("");
   const token = sessionStorage.getItem("token");
+  const admin = sessionStorage.getItem("admin");
   const navigate = useNavigate();
-  const handleClick = () => {
-    actions.login(email, password);
+  
+  const handleEmailPasswordLogin = async () => {
+    try {
+      const userCredential = await signInWithEmailAndPassword(auth, email, password);
+      const user = userCredential.user;
+      console.log('Logged in user:', user);
+      if (isAdmin) {
+        sessionStorage.setItem("admin", user.accessToken);
+      } else {
+        sessionStorage.setItem("token", user.accessToken);
+        sessionStorage.setItem("email", user.email);
+      }
+      navigate("/");
+    } catch (error) {
+      console.error("Error logging in with email and password:", error);
+      setError(error.message);
+    }
   };
-  if (token && token != "" && token != undefined) navigate("/");
+
+  const handleGoogleLogin = async () => {
+    try {
+      const result = await signInWithPopup(auth, provider);
+      const user = result.user;
+      const email = user.email;
+
+      const emailDomain = "@correo.unimet.edu.ve";
+      if (!email.endsWith(emailDomain)) {
+        setError(`Email must end with ${emailDomain}`);
+        // Cerrar sesión del usuario si el correo no es válido.
+        await auth.signOut();
+        return;
+      }
+      if (user.email ) 
+      console.log('Logged in user with Google:', user);
+      if (isAdmin) {
+        sessionStorage.setItem("admin", user.accessToken);
+      } else {
+        sessionStorage.setItem("token", user.accessToken);
+        sessionStorage.setItem("email", user.email)
+      }
+      navigate("/");
+    } catch (error) {
+      console.error("Error logging in with Google:", error);
+      setError(error.message); 
+    }
+  };
+  
+  const handleLogout = () => {
+    sessionStorage.removeItem("token");
+    sessionStorage.removeItem("admin");
+    navigate("/");
+  };
+  
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Perform login logic here
-    console.log("Login form submitted!");
-    console.log("Email:", email);
-    console.log("Password:", password);
+    handleEmailPasswordLogin();
   };
+  
+  if ((token && token !== "" && token !== undefined) || (admin && admin !== "" && admin !== undefined)) navigate("/");
 
   return (
     <div className="container">
       <div className="row justify-content-center mt-5">
         <div className="col-md-6">
           <h2 className="text-center mb-4">Login</h2>
-          {token && token !== "" && token !== undefined ? (
+          {(token && token !== "" && token !== undefined) || (admin && admin !== "" && admin !== undefined) ? (
             <>
-              <p>You are Logged in with the token: {token}</p>
+              <p>You are already logged in.</p>
+              <button className="btn btn-primary" onClick={handleLogout}>
+                Log Out
+              </button>
             </>
           ) : (
             <form onSubmit={handleSubmit}>
@@ -53,13 +109,27 @@ const LoginForm = () => {
                   onChange={(e) => setPassword(e.target.value)}
                   required
                 />
+                {error && <p className="text-danger">{error}</p>}
               </div>
+              <div className="form-group">
+                <label>
+                  <input
+                    type="checkbox"
+                    checked={isAdmin}
+                    onChange={(e) => setIsAdmin(e.target.checked)}
+                  />
+                  ¿Eres Administrador?
+                </label>
+              </div>
+              <button type="submit" className="btn btn-primary mt-2">
+                Login
+              </button>
               <button
                 type="button"
-                className="btn btn-primary mt-2"
-                onClick={handleClick}
+                className="btn btn-secondary mt-2"
+                onClick={handleGoogleLogin}
               >
-                Login
+                Login with Google
               </button>
             </form>
           )}
