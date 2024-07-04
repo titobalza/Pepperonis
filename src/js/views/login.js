@@ -36,11 +36,22 @@ const LoginForm = () => {
     try {
       const result = await signInWithPopup(auth, provider);
       const user = result.user;
+      const email = user.email;
+
+      const emailDomain = "@correo.unimet.edu.ve";
+      if (!email.endsWith(emailDomain)) {
+        setError(`Email must end with ${emailDomain}`);
+        // Cerrar sesión del usuario si el correo no es válido.
+        await auth.signOut();
+        return;
+      }
+      if (user.email ) 
       console.log('Logged in user with Google:', user);
       if (isAdmin) {
         sessionStorage.setItem("admin", user.accessToken);
       } else {
         sessionStorage.setItem("token", user.accessToken);
+        sessionStorage.setItem("email", user.email)
       }
       navigate("/");
     } catch (error) {
