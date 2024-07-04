@@ -24,6 +24,7 @@ const LoginForm = () => {
         sessionStorage.setItem("admin", user.accessToken);
       } else {
         sessionStorage.setItem("token", user.accessToken);
+        sessionStorage.setItem("email", user.email);
       }
       navigate("/");
     } catch (error) {

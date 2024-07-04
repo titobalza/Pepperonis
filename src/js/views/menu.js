@@ -4,12 +4,17 @@ import { ref, onValue } from "firebase/database";
 import { database } from '../configSignIn/firebase';
 import { useState, useEffect } from 'react';
 
+
 const Product = ({ product, addToCart }) => (
-  <div className="product">
-    <h2>{product.name}</h2>
-    <p>{product.category}</p>
-    <p>{product.price}</p>
-    <button onClick={() => addToCart(product)}>Add to Cart</button>
+  <div className="col-12 col-sm-6 col-md-4 col-lg-3 mb-4">
+    <div className="card h-100">
+      <div className="card-body">
+        <h5 className="card-title">{product.name}</h5>
+        <p className="card-text">{product.category}</p>
+        <p className="card-text">${product.price}</p>
+        <button className="btn btn-primary" onClick={() => addToCart(product)}>Add to Cart</button>
+      </div>
+    </div>
   </div>
 );
 
@@ -23,8 +28,6 @@ const Menu = ({ addToCart }) => {
     const productsRef = ref(database, 'productos');
     onValue(productsRef, (snapshot) => {
       const data = snapshot.val() || {};
-      
-  
       const productsArray = [];
       const categoriesSet = new Set();
 
@@ -36,7 +39,6 @@ const Menu = ({ addToCart }) => {
         });
       });
 
-      // Set the products and categories state
       setProducts(productsArray);
       setCategories(['all', ...Array.from(categoriesSet)]);
     });
@@ -50,36 +52,44 @@ const Menu = ({ addToCart }) => {
   });
 
   return (
-    <div style={{
-      backgroundImage: `url(${icono})`,
-      backgroundSize: "cover",
-      backgroundPosition: "center",
-      backgroundRepeat: "no-repeat",
-      minHeight: "100vh",
-    }}>
-      <div className="filter-bar">
-        <input
-          type="text"
-          placeholder="Buscar producto..."
-          value={searchTerm}
-          onChange={(e) => setSearchTerm(e.target.value)}
-        />
-        <div className="category-buttons">
-          {categories.map((category) => (
-            <button
-              key={category}
-              className={filter === category ? 'active' : ''}
-              onClick={() => setFilter(category)}
-            >
-              {category.charAt(0).toUpperCase() + category.slice(1)}
-            </button>
+    <div 
+      className="bg-image"
+      style={{
+        backgroundImage: `url(${icono})`,
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        backgroundRepeat: "no-repeat",
+        minHeight: "100vh",
+      }}
+    >
+      <div className="container py-5">
+        <div className="filter-bar mb-4 p-1">
+          <div className="input-group mb-3">
+            <input
+              type="text"
+              className="form-control"
+              placeholder="Buscar producto..."
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
+            />
+          </div>
+          <div className="category-buttons d-flex flex-wrap">
+            {categories.map((category) => (
+              <button
+                key={category}
+                className={`btn btn-secondary me-2 mb-2 ${filter === category ? 'active' : ''}`}
+                onClick={() => setFilter(category)}
+              >
+                {category.charAt(0).toUpperCase() + category.slice(1)}
+              </button>
+            ))}
+          </div>
+        </div>
+        <div className="row">
+          {filteredProducts.map((product, index) => (
+            <Product key={index} product={product} addToCart={addToCart} />
           ))}
         </div>
-      </div>
-      <div className="menu">
-        {filteredProducts.map((product, index) => (
-          <Product key={index} product={product} addToCart={addToCart} />
-        ))}
       </div>
     </div>
   );

@@ -42,7 +42,7 @@ export const Navbar = () => {
               </li>
             </>
           ) : admin ? (
-            <>
+            <div>
               <li className="nav-item d-flex align-items-stretch">
                 <Link to="/stats" className="btn btn-outline-dark btn-square d-flex align-items-center justify-content-center" >ESTADÍSTICAS</Link>
               </li>
@@ -52,7 +52,7 @@ export const Navbar = () => {
               <li className="nav-item d-flex align-items-stretch border border-dark">
                 <Link to="/login" className="btn btn-outline-dark btn-square d-flex align-items-center justify-content-center bg-D59E3B">ADMINISTRADOR</Link>
               </li>
-            </>
+            </div>
           ) : (
             <>
               <li className="nav-item d-flex align-items-stretch">
