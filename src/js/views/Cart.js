@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { ref, set, get, child } from 'firebase/database';
 import { database } from '../configSignIn/firebase';
 import { Modal, Button } from 'react-bootstrap';
+import icono from "../../img/fondo.png";
+
 
 const saveCartToLocalStorage = (cart) => {
   localStorage.setItem('cart', JSON.stringify(cart));
@@ -96,6 +98,13 @@ const Cart = ({ cart, setCart }) => {
   };
 
   return (
+    <div style={{
+      backgroundImage: `url(${icono})`,
+      backgroundSize: "cover",
+      backgroundPosition: "center",
+      backgroundRepeat: "no-repeat",
+      minHeight: "100vh",
+    }}>
     <div className="container py-5">
       <h3>Su pedido {userName} :</h3>
       {!isNameLoaded ? (
@@ -148,6 +157,7 @@ const Cart = ({ cart, setCart }) => {
           </Button>
         </Modal.Footer>
       </Modal>
+    </div>
     </div>
   );
 };

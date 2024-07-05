@@ -4,6 +4,8 @@ import { Context } from "../store/appContext";
 import { auth, provider } from '../configSignIn/firebase';
 import { signInWithEmailAndPassword, signInWithPopup } from 'firebase/auth';
 import "../../styles/demo.css";
+import icono from "../../img/fondo.png";
+
 
 const LoginForm = () => {
   const { store, actions } = useContext(Context);
@@ -75,54 +77,62 @@ const LoginForm = () => {
   if ((token && token !== "" && token !== undefined) || (admin && admin !== "" && admin !== undefined)) navigate("/");
 
   return (
-    <div className="container">
-      <div className="row justify-content-center mt-5">
-        <div className="col-md-6">
-          <h2 className="text-center mb-4">Login</h2>
-          {(token && token !== "" && token !== undefined) || (admin && admin !== "" && admin !== undefined) ? (
-            <>
-              <p>You are already logged in.</p>
-              <button className="btn btn-primary" onClick={handleLogout}>
-                Log Out
-              </button>
-            </>
-          ) : (
-            <form onSubmit={handleSubmit}>
-              <div className="form-group">
-                <label>Email</label>
-                <input
-                  type="email"
-                  className="form-control"
-                  placeholder="Enter email"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  required
-                />
-              </div>
-              <div className="form-group">
-                <label>Password</label>
-                <input
-                  type="password"
-                  className="form-control"
-                  placeholder="Enter password"
-                  value={password}
-                  onChange={(e) => setPassword(e.target.value)}
-                  required
-                />
-                {error && <p className="text-danger">{error}</p>}
-              </div>
-              <button type="submit" className="btn btn-primary mt-2">
-                Login
-              </button>
-              <button
-                type="button"
-                className="btn btn-secondary mt-2"
-                onClick={handleGoogleLogin}
-              >
-                Login with Google
-              </button>
-            </form>
-          )}
+    <div style={{
+      backgroundImage: `url(${icono})`,
+      backgroundSize: "cover",
+      backgroundPosition: "center",
+      backgroundRepeat: "no-repeat",
+      minHeight: "100vh",
+    }}>
+      <div className="container" >
+        <div className="row justify-content-center mt-5">
+          <div className="col-md-6">
+            <h2 className="text-center mb-4">Login</h2>
+            {(token && token !== "" && token !== undefined) || (admin && admin !== "" && admin !== undefined) ? (
+              <>
+                <p>You are already logged in.</p>
+                <button className="btn btn-primary" onClick={handleLogout}>
+                  Log Out
+                </button>
+              </>
+            ) : (
+              <form onSubmit={handleSubmit}>
+                <div className="form-group">
+                  <label>Email</label>
+                  <input
+                    type="email"
+                    className="form-control"
+                    placeholder="Enter email"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    required
+                  />
+                </div>
+                <div className="form-group">
+                  <label>Password</label>
+                  <input
+                    type="password"
+                    className="form-control"
+                    placeholder="Enter password"
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
+                    required
+                  />
+                  {error && <p className="text-danger">{error}</p>}
+                </div>
+                <button type="submit" className="btn btn-primary mt-2">
+                  Login
+                </button>
+                <button
+                  type="button"
+                  className="btn btn-secondary mt-2"
+                  onClick={handleGoogleLogin}
+                >
+                  Login with Google
+                </button>
+              </form>
+            )}
+          </div>
         </div>
       </div>
     </div>
