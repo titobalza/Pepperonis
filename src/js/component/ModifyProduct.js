@@ -76,7 +76,7 @@ const ModifyProduct = () => {
               </div>
             ) : (
               <span className="productx-details">
-                {product.name} - {product.category} - ${product.price}
+                {product.name} - {product.category} - Bs. {product.price}
               </span>
             )}
             {editingProductId === product.id ? (

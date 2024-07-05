@@ -1,13 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { ref, set, get, child } from 'firebase/database';
 import { database } from '../configSignIn/firebase';
+import { Modal, Button } from 'react-bootstrap';
 
-// Helper function to save cart to localStorage
 const saveCartToLocalStorage = (cart) => {
   localStorage.setItem('cart', JSON.stringify(cart));
 };
 
-// Helper function to load cart from localStorage
 const loadCartFromLocalStorage = () => {
   const savedCart = localStorage.getItem('cart');
   return savedCart ? JSON.parse(savedCart) : [];
@@ -17,6 +16,7 @@ const Cart = ({ cart, setCart }) => {
   const [total, setTotal] = useState(0);
   const [userName, setUserName] = useState('');
   const [isNameLoaded, setIsNameLoaded] = useState(false);
+  const [showPopup, setShowPopup] = useState(false);
 
   useEffect(() => {
     const savedCart = loadCartFromLocalStorage();
@@ -27,7 +27,6 @@ const Cart = ({ cart, setCart }) => {
     if (email) {
       const sanitizedEmail = email.replace(/[^\w\s]/gi, '');
       const userRef = ref(database, `infoUsuarios/${sanitizedEmail}`);
-
       get(child(userRef, '/')).then((snapshot) => {
         if (snapshot.exists()) {
           const data = snapshot.val();
@@ -67,6 +66,10 @@ const Cart = ({ cart, setCart }) => {
     setCart(newCart);
   };
 
+  const handleClosePopup = () => {
+    setShowPopup(false);
+  };
+
   const handlePay = () => {
     if (!userName) {
       alert('Por favor, rellena tus datos en "Mi Perfil" para completar tu pedido.');
@@ -85,6 +88,7 @@ const Cart = ({ cart, setCart }) => {
         console.log('Pedido guardado exitosamente');
         localStorage.removeItem('cart');
         setCart([]);
+        setShowPopup(true);
       })
       .catch((error) => {
         console.error('Error al guardar el pedido:', error);
@@ -106,7 +110,7 @@ const Cart = ({ cart, setCart }) => {
                 <div>
                   <h5>{product.name}</h5>
                   <p>{product.category}</p>
-                  <p>${product.price.toFixed(2)}</p>
+                  <p>Bs. {product.price.toFixed(2)}</p>
                   <div className="input-group mb-3" style={{ maxWidth: '120px' }}>
                     <input
                       type="number"
@@ -121,7 +125,7 @@ const Cart = ({ cart, setCart }) => {
               </li>
             ))}
           </ul>
-          <p>Total: ${total.toFixed(2)}</p>
+          <p>Total: Bs. {total.toFixed(2)}</p>
           {userName ? (
             <button className="btn btn-primary" onClick={handlePay}>PAGAR</button>
           ) : (
@@ -129,6 +133,21 @@ const Cart = ({ cart, setCart }) => {
           )}
         </>
       )}
+
+      {/* Modal Popup */}
+      <Modal show={showPopup} onHide={handleClosePopup}>
+        <Modal.Header closeButton>
+          <Modal.Title>Pedido Completado</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <p>¡Gracias por tu compra, {userName}! Tu pedido ha sido guardado exitosamente.</p>
+        </Modal.Body>
+        <Modal.Footer>
+          <Button variant="secondary" onClick={handleClosePopup}>
+            Cerrar
+          </Button>
+        </Modal.Footer>
+      </Modal>
     </div>
   );
 };

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import icono from "../../img/logo.png";
 import icono2 from "../../img/unimet.png";
-
+import "../../styles/navbar.css"
 export const Navbar = () => {
   const [token, setToken] = useState(null);
   const [admin, setAdmin] = useState(null);
@@ -42,17 +42,35 @@ export const Navbar = () => {
               </li>
             </>
           ) : admin ? (
-            <div>
+            <>
               <li className="nav-item d-flex align-items-stretch">
-                <Link to="/stats" className="btn btn-outline-dark btn-square d-flex align-items-center justify-content-center" >ESTADÍSTICAS</Link>
+                <Link
+                  to="/stats"
+                  className="btn btn-outline-dark btn-square d-flex align-items-center justify-content-center"
+                  style={{ whiteSpace: "nowrap" }}
+                >
+                  ESTADÍSTICAS
+                </Link>
               </li>
               <li className="nav-item d-flex align-items-stretch">
-                <Link to="/modify-menu" className="btn btn-outline-dark btn-square d-flex align-items-center justify-content-center" >MODIFICAR<br />MENÚ</Link>
+                <Link
+                  to="/modify-menu"
+                  className="btn btn-outline-dark btn-square d-flex align-items-center justify-content-center text-center"
+                  style={{ whiteSpace: "nowrap" }}
+                >
+                  MODIFICAR<br />MENÚ
+                </Link>
               </li>
               <li className="nav-item d-flex align-items-stretch border border-dark">
-                <Link to="/login" className="btn btn-outline-dark btn-square d-flex align-items-center justify-content-center bg-D59E3B">ADMINISTRADOR</Link>
+                <Link
+                  to="/login"
+                  className="btn btn-outline-dark btn-square d-flex align-items-center justify-content-center bg-D59E3B"
+                  style={{ whiteSpace: "nowrap" }}
+                >
+                  ADMINISTRADOR
+                </Link>
               </li>
-            </div>
+            </>
           ) : (
             <>
               <li className="nav-item d-flex align-items-stretch">

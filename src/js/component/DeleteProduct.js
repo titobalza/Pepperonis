@@ -38,7 +38,7 @@ const DeleteProduct = () => {
         {products.map((product) => (
           <li key={product.id} className="productx-item">
             <span className="productx-details">
-              {product.name} - {product.category} - ${product.price}
+              {product.name} - {product.category} - Bs. {product.price}
             </span>
             <FaTrashAlt className="deletex-icon" onClick={() => deleteProduct(product)} />
           </li>

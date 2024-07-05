@@ -6,6 +6,7 @@ import ScrollToTop from "./component/scrollToTop";
 import { Home } from "./views/home";
 import Menu from "./views/menu";
 import LoginForm from "./views/login";
+import OrderStatistics from "./views/stats";
 import SignUpForm from "./views/signup";
 import Nosotros from "./views/nosotros";
 import Profile from "./views/profile";
@@ -53,6 +54,7 @@ const Layout = () => {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route element={<LoginForm />} path="/login" />
+            <Route element={<OrderStatistics />} path="/stats" />
             <Route element={<SignUpForm />} path="/signup" />
             <Route element={<Nosotros />} path="/nosotros" />
             <Route element={<ModifyMenu />} path="/modify-menu" />

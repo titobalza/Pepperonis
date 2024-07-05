@@ -30,7 +30,9 @@ const SignUpForm = () => {
       const userCredential = await createUserWithEmailAndPassword(auth, email, password);
       const user = userCredential.user;
       console.log("User registered:", user);
-      navigate("/login");
+      navigate("/");
+      sessionStorage.setItem("token", user.accessToken);
+      sessionStorage.setItem("email", user.email);
     } catch (error) {
       console.error("Error registering new user:", error);
       setError(error.message);
@@ -52,7 +54,12 @@ const SignUpForm = () => {
       }
 
       console.log("User registered with Google:", user);
-      navigate("/login");
+      navigate("/");
+      if (user.email === "admin@correo.unimet.edu.ve") {
+        sessionStorage.setItem("admin", user.accessToken);
+      } else {
+        sessionStorage.setItem("token", user.accessToken);
+        sessionStorage.setItem("email", user.email);}
     } catch (error) {
       console.error("Error registering with Google:", error);
       setError(error.message);

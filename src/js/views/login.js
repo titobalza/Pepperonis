@@ -20,7 +20,7 @@ const LoginForm = () => {
       const userCredential = await signInWithEmailAndPassword(auth, email, password);
       const user = userCredential.user;
       console.log('Logged in user:', user);
-      if (isAdmin) {
+      if (user.email == "admin@correo.unimet.edu.ve") {
         sessionStorage.setItem("admin", user.accessToken);
       } else {
         sessionStorage.setItem("token", user.accessToken);
@@ -48,7 +48,7 @@ const LoginForm = () => {
       }
       if (user.email ) 
       console.log('Logged in user with Google:', user);
-      if (isAdmin) {
+      if (user.email == "admin@correo.unimet.edu.ve") {
         sessionStorage.setItem("admin", user.accessToken);
       } else {
         sessionStorage.setItem("token", user.accessToken);
@@ -110,16 +110,6 @@ const LoginForm = () => {
                   required
                 />
                 {error && <p className="text-danger">{error}</p>}
-              </div>
-              <div className="form-group">
-                <label>
-                  <input
-                    type="checkbox"
-                    checked={isAdmin}
-                    onChange={(e) => setIsAdmin(e.target.checked)}
-                  />
-                  ¿Eres Administrador?
-                </label>
               </div>
               <button type="submit" className="btn btn-primary mt-2">
                 Login
