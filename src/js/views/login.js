@@ -77,14 +77,16 @@ const LoginForm = () => {
   if ((token && token !== "" && token !== undefined) || (admin && admin !== "" && admin !== undefined)) navigate("/");
 
   return (
-    <div style={{
+    <div className="pb-5" 
+    style={{
       backgroundImage: `url(${icono})`,
       backgroundSize: "cover",
       backgroundPosition: "center",
       backgroundRepeat: "no-repeat",
       minHeight: "100vh",
-    }}>
-      <div className="container" >
+      marginTop: "-50px"
+    }}> 
+      <div className="container " >
         <div className="row justify-content-center mt-5">
           <div className="col-md-6">
             <h2 className="text-center mb-4">Login</h2>

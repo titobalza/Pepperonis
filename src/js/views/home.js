@@ -5,7 +5,7 @@ import { Promocion } from "../component/infohome";
 import icono from "../../img/fondo.png";
 
 export const Home = () => (
-    <div className="home">
+    <div className="home" >
         <div className="principal">
             <div className="carrusel">
                 <p id="presentacion">VEN A<br/>CONOCERNOS<br/>EN LA FERIA</p>

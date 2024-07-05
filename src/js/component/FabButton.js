@@ -19,7 +19,7 @@ const FabButton = () => {
           <a href="https://www.whatsapp.com" target="_blank" rel="noopener noreferrer" className="fab fab-sub">
             <FontAwesomeIcon icon={faWhatsapp} />
           </a>
-          <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer" className="fab fab-sub">
+          <a href="https://www.instagram.com/pepperonis.unimet/" target="_blank" rel="noopener noreferrer" className="fab fab-sub">
             <FontAwesomeIcon icon={faInstagram} />
           </a>
         </div>

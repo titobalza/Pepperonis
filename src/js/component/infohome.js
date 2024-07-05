@@ -12,9 +12,7 @@ export const Promocion = () => {
         <div className="col-md-6">
           <div className="bg-danger text-white p-4 rounded shadow">
             <h2 className="fw-bold">¿Quiénes Somos?</h2>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed cursus mauris non neque faucibus, eu gravida velit aliquet. Nullam vitae diam eget eros finibus eleifend. Fusce consectetur velit nunc, at lobortis odio auctor id. Nulla facilisi.
-            </p>
+            <p>Somos una reconocida pizzería ubicada en la Universidad Metropolitana (UNIMET), con años de experiencia en el arte de la pizza y la cocina italiana. Nos dedicamos a ofrecer a los estudiantes y comensales una deliciosa selección de pizzas caseras, así como platos fuertes como risotto y pasta, preparados con los ingredientes más frescos y auténticos.</p>
           </div>
         </div>
       </div>

@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import ScrollToTop from "./component/scrollToTop";
-
+import icono from "../img/fondo.png";
 import { Home } from "./views/home";
 import Menu from "./views/menu";
 import LoginForm from "./views/login";

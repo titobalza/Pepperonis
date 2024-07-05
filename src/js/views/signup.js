@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { auth, provider } from '../configSignIn/firebase';
 import { createUserWithEmailAndPassword, signInWithPopup } from "firebase/auth";
 import "../../styles/demo.css";
+import icono from "../../img/fondo.png";
 
 const SignUpForm = () => {
   const [email, setEmail] = useState("");
@@ -67,7 +68,14 @@ const SignUpForm = () => {
   };
 
   return (
-    <div className="container">
+    <div className="w-100" style={{
+      backgroundImage: `url(${icono})`,
+      backgroundSize: "cover",
+      backgroundPosition: "center",
+      backgroundRepeat: "no-repeat",
+      minHeight: "100vh",
+      marginTop: "-50px"
+    }}>
       <div className="row justify-content-center mt-5">
         <div className="col-md-6">
           <h2 className="text-center mb-4">Sign Up</h2>
