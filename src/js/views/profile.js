@@ -3,6 +3,7 @@ import { ref, set, get, child } from 'firebase/database';
 import { database } from '../configSignIn/firebase';
 import '../../styles/profile.css';
 import icono from "../../img/fondo.png";
+import { useNavigate } from 'react-router';
 
 const Profile = () => {
   const [name, setName] = useState('');
@@ -11,6 +12,7 @@ const Profile = () => {
   const [city, setCity] = useState('');
   const [state, setState] = useState('');
   const [isEditing, setIsEditing] = useState(false);
+  const navigate = useNavigate();
 
   const email = sessionStorage.getItem("email");
   const sanitizedEmail = email ? email.replace(/[^\w\s]/gi, '') : null;
@@ -57,7 +59,7 @@ const Profile = () => {
         state
       }).then(() => {
         console.log('Datos guardados exitosamente');
-        window.location.reload(); // Recargar la página después de guardar
+        navigate("/"); // Recargar la página después de guardar
       }).catch((error) => {
         console.error('Error al guardar los datos:', error);
       });
